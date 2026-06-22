@@ -1,0 +1,13 @@
+# Go
+*.exe
+*.test
+*.out
+vendor/
+
+node_modules/
+dist/
+target/
+__pycache__/
+*.pyc
+.env
+.DS_Store
