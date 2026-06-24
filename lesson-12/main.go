@@ -128,6 +128,8 @@ func corsMiddleware(next http.Handler) http.Handler {
 }
 
 // recoverMiddleware 捕获 handler 中的 panic，防止整个服务崩溃。
+// recover 只能在 defer 中生效，且只捕获当前 goroutine 的 panic。
+// panic 后同级代码跳过，defer 执行完后 goroutine 退出。
 func recoverMiddleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		defer func() {
